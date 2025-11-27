@@ -23,7 +23,7 @@ function AdminDashboard() {
 
   const fetchData = async (type, setter) => {
     try {
-      const res = await API.get(`/${type}`);
+       const res = await API.get(`/admin/${type}`);
       setter(res.data);
     } catch (err) {
       console.error(`Error fetching ${type}:`, err);
@@ -32,7 +32,7 @@ function AdminDashboard() {
 
   const handleAdd = async (type, setter) => {
     try {
-      await API.post(`/${type}`, newEntry);
+      await API.post(`/admin/${type}`, newEntry);
       fetchData(type, setter);
       setNewEntry({ name: "", email: "" });
     } catch (err) {
@@ -42,7 +42,7 @@ function AdminDashboard() {
 
   const handleDelete = async (type, setter, id) => {
     try {
-      await API.delete(`/${type}/${id}`);
+      await API.delete(`/admin/${type}/${id}`);
       fetchData(type, setter);
     } catch (err) {
       console.error(`Error deleting ${type}:`, err);
@@ -56,7 +56,7 @@ function AdminDashboard() {
 
   const handleUpdate = async (type, setter, id) => {
     try {
-      await API.put(`/${type}/${id}`, editingData);
+      await API.put(`/admin/${type}/${id}`, editingData);
       fetchData(type, setter);
       setEditingId(null);
       setEditingData({ name: "", email: "" });
