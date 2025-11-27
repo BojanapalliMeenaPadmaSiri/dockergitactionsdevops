@@ -1,0 +1,196 @@
+/* === GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a3b36;
+  color: #e9f0ec;
+  overflow-x: hidden;
+}
+
+/* === FULL PAGE CONTAINER === */
+.auth-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a3b36 0%, #1a433d 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* === LEFT WHITE CURVED SHAPE === */
+.auth-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  background: #eaf4f5;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  z-index: 0;
+}
+
+/* === LEFT SIDE ILLUSTRATION === */
+.illustration-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.student-illustration {
+  width: 70%;
+  max-width: 360px;
+  position: fixed;
+  left: 130px; /* 👈 pushes image slightly to the left */
+  top:0;
+  bottom:0;
+  margin: auto;
+}
+
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* === AUTH BOX (FORM AREA) === */
+.auth-box {
+  position: relative;
+  z-index: 2;
+  width: 360px;
+  padding: 2.5rem;
+  border-radius: 12px;
+  color: #ffffff;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+
+  margin-right: calc(27.5% - 175px);
+  animation: fadeIn 0.8s ease;
+}
+
+.auth-box h2 {
+  font-size: 1.9rem;
+  margin-bottom: 1.5rem;
+  color: #e9f0ec;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* === INPUTS === */
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  outline: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.auth-box input::placeholder {
+  color: #cfd9d6;
+}
+
+.auth-box input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+}
+
+/* === BUTTON === */
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #71b8b1;
+  border: none;
+  border-radius: 8px;
+  color: #0f2622;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.auth-box button:hover {
+  background: #90d1cb;
+  transform: translateY(-2px);
+}
+
+/* === LINKS === */
+.auth-box p {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #b9c8c3;
+  text-align: center;
+}
+
+.auth-box a {
+  color: #7be2da;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.auth-box a:hover {
+  color: #a3f4ee;
+  text-decoration: underline;
+}
+
+/* === LOGO (if you add later) === */
+.logo {
+  position: absolute;
+  top: 30px;
+  left: 40px;
+  z-index: 2;
+}
+
+/* === ANIMATION === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 900px) {
+  .auth-container::before {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .illustration-area {
+    display: none; /* Hide illustration on small screens */
+  }
+
+  .auth-box {
+    margin-right: 0;
+    width: 90%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .auth-box h2 {
+    font-size: 1.7rem;
+  }
+}

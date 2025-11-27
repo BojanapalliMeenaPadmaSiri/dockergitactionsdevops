@@ -1,0 +1,249 @@
+/* ================== GENERAL RESET ================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background: #ffffff;
+}
+
+/* ================== DASHBOARD LAYOUT ================== */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #222;
+  background-color: #d6f5e5;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* ================== NAVBAR (STUDENT THEME) ================== */
+.sidebar-student-theme {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  background: rgba(255, 255, 255);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 6px 20px;
+  border-radius: 40px;
+  width: fit-content;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+/* Small heading */
+.sidebar-student-theme h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0a3b36;
+  margin-right: 10px;
+}
+
+/* Navbar buttons */
+.sidebar-student-theme button {
+  
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #0a0a0a;
+  cursor: pointer;
+  padding: 6px 14px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-student-theme button:hover {
+  color: #00704a;
+  background: rgba(10, 59, 54, 0.08);
+}
+
+/* Active tab styling */
+.sidebar-student-theme button.active,
+.sidebar-student-theme button:focus {
+  background: rgb(209, 240, 209);
+  color: #0a3b36;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(10, 59, 54, 0.15);
+}
+
+/* ================== LOGOUT BUTTON ================== */
+.logout-btn {
+  position: fixed;
+  top: 22px;
+  right: 40px;
+  background: #00704a;
+  color: #fff;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #004f34;
+  transform: translateY(-2px);
+}
+
+/* ================== MAIN CONTENT ================== */
+.main-content {
+  flex: 1;
+  padding: 120px 60px 40px 60px; /* leaves space for fixed navbar */
+  text-align: center;
+}
+
+/* ================== CONTENT CARD ================== */
+.content {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  max-width: 900px;
+  transition: transform 0.2s ease;
+}
+
+.content:hover {
+  transform: translateY(-3px);
+}
+
+.content h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #0a3b36;
+  margin-bottom: 8px;
+}
+
+.content h3 {
+  font-size: 1.2rem;
+  color: #0a3b36;
+  margin-bottom: 18px;
+}
+
+/* ================== TABLE STYLING ================== */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+}
+
+.data-table th {
+  background: #f8f8f8;
+  font-weight: 600;
+  color: #333;
+}
+
+.data-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 900px) {
+  .sidebar-student-theme {
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 6px 12px;
+  }
+
+  .sidebar-student-theme h2 {
+    display: none;
+  }
+
+  .logout-btn {
+    top: 18px;
+    right: 20px;
+  }
+
+  .main-content {
+    padding: 100px 25px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar-student-theme {
+    gap: 8px;
+    padding: 4px 10px;
+    border-radius: 30px;
+  }
+
+  .sidebar-student-theme button {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .logout-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    font-size: 0.8rem;
+    padding: 8px;
+  }
+}
+
+/* ================== ADD COURSE FORM ================== */
+.add-course-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 15px 0 25px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+}
+
+.add-course-form input {
+  flex: 1 1 180px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+  outline: none;
+}
+
+.add-course-form button {
+  background: #009688;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-course-form button:hover {
+  background: #00796b;
+}
